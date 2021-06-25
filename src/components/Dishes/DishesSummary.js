@@ -17,7 +17,7 @@ const DishesSummary = (props) => {
         delivery
       </p>
       <hr/>
-      <label for="dish">Choose a type of dish you want to order:</label>
+      <label htmlFor="dish">Choose a type of dish you want to order:</label>
       <hr />
       <select name="dish" value={props.selected} onChange={dropdownChangeHandler}>
         <option value=""></option>
