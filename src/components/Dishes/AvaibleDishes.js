@@ -5,29 +5,27 @@ import DishItem from "./DishItem/DishItem";
 const meals = [
   {
     id: "1",
-    type: "Pizza",
+    type: "pizza",
     name: "",
     preparation_time: "",
-    no_of_slices: "",
-    diameter: "",
+    no_of_slices: 0,
+    diameter: 0,
   },
   {
     id: "2",
-    type: "Soup",
+    type: "soup",
     name: {},
     preparation_time: "{}",
     spiciness_scale: "{}",
   },
   {
     id: "3",
-    type: "Sandwich",
+    type: "sandwich",
     name: "{}",
     preparation_time: "{}",
     slices_of_bread: "{}",
   },
 ];
-
-
 
 const AvaibleDishes = (props) => {
 

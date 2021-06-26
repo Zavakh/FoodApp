@@ -21,9 +21,9 @@ const DishesSummary = (props) => {
       <hr />
       <select name="dish" value={props.selected} onChange={dropdownChangeHandler}>
         <option value=""></option>
-        <option value="Pizza">Pizza</option>
-        <option value="Soup">Soup</option>
-        <option value="Sandwich">Sandwich</option>
+        <option value="pizza">Pizza</option>
+        <option value="soup">Soup</option>
+        <option value="sandwich">Sandwich</option>
       </select>
     </section>
   );
