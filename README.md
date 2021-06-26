@@ -1,8 +1,9 @@
 # FoodApp
-Food App created as a task
+Food App created as a task.
+It took me about 9 hours to make.
 
 This repository contains the source code to created app. 
-Project is set on v15.5.1 Node version and 7.8.0 version of npm
+Project is set on v15.5.1 Node version and 7.8.0 version of npm.
 
 
 To launch this project proceed to download all the files provided in this repository and open project with your code editor. 
