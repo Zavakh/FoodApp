@@ -11,21 +11,16 @@ const DishItem = (props) => {
 
   const nameChangeHandler = (event) => {
     setEnteredName(event.target.value);
-    console.log(enteredName.type)
+    console.log(enteredName.type);
   };
   const preparationChangeHandler = (event) => {
     setPreparationChange(event.target.value);
-    
-    console.log(preparationChange.value);
   };
   const pizzaSlicesChangeHandler = (event) => {
-    setpizzaSliceChange(event.target.value);    
-    console.log(event.target.value);    
-    
+    setpizzaSliceChange(event.target.value);
   };
   const pizzaDiameterChangeHandler = (event) => {
     setpizzaDiameterChange(event.target.value);
-    console.log(event.target.value)
   };
   const spicinessScaleChangeHandler = (event) => {
     setspicinessScaleChange(event.target.value);
@@ -34,14 +29,13 @@ const DishItem = (props) => {
     setSlicesOfBreadChange(event.target.value);
   };
 
-  
   //   Here I set some limitations to add culinary logic
   // f.e. to not order 0 slices of pizza, pizza that has 2 meter in diameter or sandwich with 50 slices
   let dishPicked = "";
 
   const nameToDisplay = enteredName + " " + props.meal.type;
 
-  if (props.meal.type === "pizza") {    
+  if (props.meal.type === "pizza") {
     dishPicked = (
       <div>
         <label htmlFor="pizzaslices">
@@ -52,7 +46,6 @@ const DishItem = (props) => {
           id="pizzaslices"
           name="pizzaslices"
           min="1"
-          
           onChange={pizzaSlicesChangeHandler}
           required
         ></input>
@@ -75,7 +68,7 @@ const DishItem = (props) => {
     );
   }
 
-  if (props.meal.type === "soup") {   
+  if (props.meal.type === "soup") {
     dishPicked = (
       <div>
         <label htmlFor="soupspice">
@@ -96,7 +89,6 @@ const DishItem = (props) => {
   }
 
   if (props.meal.type === "sandwich") {
-    
     dishPicked = (
       <div>
         <label htmlFor="breadslices">
@@ -135,7 +127,6 @@ const DishItem = (props) => {
           type="time"
           id="preptime"
           name="preptime"
-          className="html-duration-picker"
           step="1"
           value={preparationChange}
           onChange={preparationChangeHandler}
@@ -148,30 +139,30 @@ const DishItem = (props) => {
     </div>
   );
 
-
   const submitHandler = (event) => {
     event.preventDefault();
+
     let pizzaSlicesCount = null;
     let pizzaDiameterCount = null;
     let spicinessCount = null;
     let breadSlices = null;
-   if (props.meal.type === "pizza"){
-    pizzaSlicesCount = JSON.parse(pizzasSliceChange);
-    pizzaDiameterCount = JSON.parse(pizzasDiameterChange);
-   };
-   if(props.meal.type === "soup"){
-    spicinessCount = JSON.parse(spicinessScaleChange);
-   };
-   
-  if(props.meal.type === "sandwich"){
-    breadSlices =  JSON.parse(slicesOfBreadChange);
-   };
-   
+    if (props.meal.type === "pizza") {
+      pizzaSlicesCount = JSON.parse(pizzasSliceChange);
+      pizzaDiameterCount = JSON.parse(pizzasDiameterChange);
+    }
+    if (props.meal.type === "soup") {
+      spicinessCount = JSON.parse(spicinessScaleChange);
+    }
+
+    if (props.meal.type === "sandwich") {
+      breadSlices = JSON.parse(slicesOfBreadChange);
+    }
+
     const dishData = {
       id: props.meal.id,
       name: nameToDisplay,
       type: props.meal.type,
-      preparation_time:preparationChange,
+      preparation_time: preparationChange,
       no_of_slices: pizzaSlicesCount,
       diameter: pizzaDiameterCount,
       spiciness_scale: spicinessCount,
@@ -179,30 +170,30 @@ const DishItem = (props) => {
     };
     console.log(dishData);
     alert("Your order has been recieved");
-    
-  
-  
-  fetch('https://frosty-wood-6558.getsandbox.com/dishes', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(dishData),
-})
-.then(response => response.json())
-.then(dishData => {
-  console.log('Success:', dishData);
-})
-.catch((error) => {
-  console.error('Error:', dishData);
-});
-};
-  
+
+    fetch("https://frosty-wood-6558.getsandbox.com/dishes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dishData),
+    })
+      .then((response) => response.json())
+      .then((dishData) => {
+        console.log("Success:", dishData);
+      })
+      .catch((error) => {
+        console.error("Error:", dishData);
+      });
+  };
+
   return (
-    <form onSubmit={submitHandler}>
-      <li className={classes.meal}>{standardJSX}</li>
-      <button type="submit">Submit</button>
-    </form>
+    <div>
+      <form onSubmit={submitHandler}>
+        <li className={classes.meal}>{standardJSX}</li>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   );
 };
 

@@ -1,4 +1,4 @@
-import {Fragment} from "react";
+import { Fragment } from "react";
 import Header from "./components/Layout/Header";
 import Dishes from "./components/Dishes/Dishes";
 
@@ -9,8 +9,7 @@ function App() {
       <main>
         <Dishes />
       </main>
-    </Fragment>    
-   
+    </Fragment>
   );
 }
 

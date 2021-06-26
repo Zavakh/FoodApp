@@ -1,10 +1,9 @@
 import classes from "./DishesSummary.module.css";
 
 const DishesSummary = (props) => {
-  
-    const dropdownChangeHandler = (event) => {
-      props.onChangeFilter(event.target.value);
-    };
+  const dropdownChangeHandler = (event) => {
+    props.onChangeFilter(event.target.value);
+  };
   return (
     <section className={classes.summary}>
       <h2>Fresh and Delicious Food</h2>
@@ -16,10 +15,14 @@ const DishesSummary = (props) => {
         We focus on traditional local products with a modern twist and on-time
         delivery
       </p>
-      <hr/>
+      <hr />
       <label htmlFor="dish">Choose a type of dish you want to order:</label>
       <hr />
-      <select name="dish" value={props.selected} onChange={dropdownChangeHandler}>
+      <select
+        name="dish"
+        value={props.selected}
+        onChange={dropdownChangeHandler}
+      >
         <option value=""></option>
         <option value="pizza">Pizza</option>
         <option value="soup">Soup</option>

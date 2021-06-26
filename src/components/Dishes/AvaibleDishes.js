@@ -28,17 +28,12 @@ const meals = [
 ];
 
 const AvaibleDishes = (props) => {
-
-  const filteredDish = meals.filter(meals=> {
+  const filteredDish = meals.filter((meals) => {
     return meals.type === props.selected;
   });
 
   const mealsList = filteredDish.map((meal) => (
-    <DishItem
-      key={meal.id}
-      meal={meal}
-      selectedDish={props.selectedDish}
-    />
+    <DishItem key={meal.id} meal={meal} selectedDish={props.selectedDish} />
   ));
 
   return (
