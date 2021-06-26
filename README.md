@@ -10,6 +10,7 @@ If you already have npm installed you can open a terminal, navigate to the proje
 Your browser will open and you can test the app.
 Beneath I'll provide screenshot and short explaination.
 
+![Preview](https://github.com/Zavakh/FoodApp/blob/master/Preview.jpg?raw=true)
 
 First you need to choose which type of food would you like to eat. 
 After making a decision you are provided with additional input fields that you need to fill. 
